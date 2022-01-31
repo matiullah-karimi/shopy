@@ -20,18 +20,17 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        height: 50,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 21),
         decoration: BoxDecoration(
-          color: color ?? Colors.grey.shade100,
+          color: color ?? Colors.blue.shade800,
           borderRadius: BorderRadius.circular(10),
         ),
-        width: MediaQuery.of(context).size.width / 1.2,
         child: Center(
           child: Text(
             text,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: textColor ?? Colors.blue.shade800,
+              color: textColor ?? Colors.grey.shade100,
             ),
           ),
         ),
