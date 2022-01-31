@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/screens/signup_screen.dart';
+import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/button_widget.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -31,13 +33,13 @@ class SplashScreen extends StatelessWidget {
               children: [
                 ButtonWidget(
                   text: 'Sign up',
-                  onPressed: () {},
+                  onPressed: () => navigate(context, const SignupScreen()),
+                  color: Colors.grey.shade100,
+                  textColor: Colors.blue.shade800,
                 ),
                 ButtonWidget(
                   text: 'Sign in',
                   onPressed: () {},
-                  color: Colors.blue.shade800,
-                  textColor: Colors.white,
                 ),
               ],
             ),
