@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/widgets/bottom_bar_widget.dart';
-import 'package:shopy/widgets/home_top_widget.dart';
+import 'package:shopy/widgets/home/home_top_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
