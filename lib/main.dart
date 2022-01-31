@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/screens/home_screen.dart';
 import 'package:shopy/screens/splash_screen.dart';
 
 void main() {
@@ -11,8 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: SplashScreen(),
+      home: SafeArea(
+        child: Scaffold(
+          body: HomeScreen(),
+        ),
       ),
     );
   }
