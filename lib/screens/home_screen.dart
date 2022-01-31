@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/widgets/bottom_bar_widget.dart';
+import 'package:shopy/widgets/home/home_categories.dart';
 import 'package:shopy/widgets/home/home_top_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,8 +14,9 @@ class HomeScreen extends StatelessWidget {
         children: [
           const HomeTopWidget(),
           Container(
-            height: 100,
+            padding: const EdgeInsets.symmetric(vertical: 8),
             color: Colors.white,
+            child: const HomeCategoriesWidget(),
           ),
           Expanded(
             child: Container(
