@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shopy/screens/login_screen.dart';
+import 'package:shopy/screens/signup_screen.dart';
 import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/button_widget.dart';
 import 'package:shopy/widgets/input_widget.dart';
 
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: 'Sign up'),
+      appBar: const AppBarWidget(title: 'Sign in'),
       body: Container(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            InputWidget(
-              hintText: 'John Doe',
-              labelText: 'Name',
-              controller: TextEditingController(),
-            ),
-            const SizedBox(height: 16),
+            const Text(
+                'Please fill E-mail & password to login your Shopy application account.'),
+            const SizedBox(height: 46),
             InputWidget(
               hintText: 'example@email.com',
               labelText: 'Email',
@@ -38,9 +35,22 @@ class SignupScreen extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
               obscureText: true,
             ),
+            const SizedBox(height: 16),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: InkWell(
+                onTap: () => navigate(context, const SignupScreen()),
+                child: Text(
+                  'Forgot password?',
+                  style: TextStyle(
+                    color: Colors.blue.shade400,
+                  ),
+                ),
+              ),
+            ),
             const SizedBox(height: 24),
             ButtonWidget(
-              text: 'Sign up',
+              text: 'Sign in',
               onPressed: () {},
             ),
             const SizedBox(height: 48),
@@ -59,15 +69,15 @@ class SignupScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Alread have an account? ',
+                  "Don't have an account? ",
                   style: TextStyle(
                     color: Colors.grey.shade700,
                   ),
                 ),
                 InkWell(
-                  onTap: () => navigate(context, const LoginScreen()),
+                  onTap: () => navigate(context, const SignupScreen()),
                   child: Text(
-                    'Sign in',
+                    'Sign up',
                     style: TextStyle(
                       color: Colors.blue.shade400,
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/screens/login_screen.dart';
 import 'package:shopy/screens/signup_screen.dart';
 import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/button_widget.dart';
@@ -39,7 +40,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 ButtonWidget(
                   text: 'Sign in',
-                  onPressed: () {},
+                  onPressed: () => navigate(context, const LoginScreen()),
                 ),
               ],
             ),
