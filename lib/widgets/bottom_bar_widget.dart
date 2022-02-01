@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/model/app_tabs.dart';
+import 'package:shopy/providers/app_tab_provider.dart';
 
-class BottomBarWidget extends StatefulWidget {
+class BottomBarWidget extends ConsumerWidget {
   const BottomBarWidget({Key? key}) : super(key: key);
 
   @override
-  State<BottomBarWidget> createState() => _BottomBarWidgetState();
-}
+  Widget build(BuildContext context, ref) {
+    AppTabs currentTab = ref.watch(appTabProvider);
 
-class _BottomBarWidgetState extends State<BottomBarWidget> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -32,9 +25,9 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
           label: 'Profile',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: currentTab.index,
       selectedItemColor: Colors.amber[800],
-      onTap: _onItemTapped,
+      onTap: (index) => ref.read(appTabProvider.notifier).changeTab(index),
     );
   }
 }

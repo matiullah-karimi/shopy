@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/screens/home_screen.dart';
-import 'package:shopy/screens/splash_screen.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/model/app_tabs.dart';
+import 'package:shopy/providers/app_tab_provider.dart';
+import 'package:shopy/widgets/bottom_bar_widget.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
+  Widget build(BuildContext context, ref) {
+    AppTabs tab = ref.watch(appTabProvider);
+
+    return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          body: HomeScreen(),
+          body: IndexedStack(
+            index: tab.index,
+            children: AppTabs.values.map((t) => t.screen).toList(),
+          ),
+          bottomNavigationBar: const BottomBarWidget(),
         ),
       ),
     );
