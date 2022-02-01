@@ -36,7 +36,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     state = AuthState.authenticated(user);
   }
 
-  void login(String email, String password) async {
+  Future<void> login(String email, String password) async {
     try {
       User user = await authRepository.login(email, password);
       state = AuthState.authenticated(user);

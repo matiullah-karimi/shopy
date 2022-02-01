@@ -3,7 +3,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/providers/auth_provider.dart';
+import 'package:shopy/providers/login_provider.dart';
 import 'package:shopy/screens/signup_screen.dart';
+import 'package:shopy/state/login_state.dart';
 import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/button_widget.dart';
@@ -17,6 +19,14 @@ class LoginScreen extends HookConsumerWidget {
     final emailControler = useTextEditingController(text: '');
     final passwordControler = useTextEditingController(text: '');
     final _formKey = GlobalKey<FormState>();
+    final loginState = ref.watch(loginProvider);
+
+    ref.listen<LoginState>(loginProvider,
+        (LoginState? prevState, LoginState newState) {
+      if (newState.isSuccess) {
+        Navigator.of(context).pop();
+      }
+    });
 
     return Scaffold(
       appBar: const AppBarWidget(title: 'Sign in'),
@@ -60,13 +70,12 @@ class LoginScreen extends HookConsumerWidget {
                 ),
                 const SizedBox(height: 24),
                 ButtonWidget(
-                  text: 'Sign in',
+                  text: loginState.isLoading ? 'Signing in...' : 'Sign in',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      ref.read(authStateProvider.notifier).login(
-                            emailControler.text,
-                            passwordControler.text,
-                          );
+                      ref
+                          .read(loginProvider.notifier)
+                          .login(emailControler.text, passwordControler.text);
                     }
                   },
                 ),
