@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/model/product.dart';
 
 class ProductsPreviewWidget extends StatelessWidget {
-  const ProductsPreviewWidget({Key? key}) : super(key: key);
+  const ProductsPreviewWidget({
+    Key? key,
+    required this.title,
+    required this.products,
+  }) : super(key: key);
+
+  final String title;
+  final List<Product> products;
 
   @override
   Widget build(BuildContext context) {
-    List<String> data = [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-    ];
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -26,28 +21,30 @@ class ProductsPreviewWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Title'),
-              Text('See All'),
+              Text(title),
+              const Text('See All'),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           SizedBox(
             height: 100,
-            child: GridView.count(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              crossAxisCount: 1,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              children: data.map(_buildProduct).toList(),
-            ),
+            child: products.isEmpty
+                ? const CircularProgressIndicator()
+                : GridView.count(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    crossAxisCount: 1,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    children: products.map(_buildProduct).toList(),
+                  ),
           )
         ],
       ),
     );
   }
 
-  Container _buildProduct(String product) {
+  Container _buildProduct(Product product) {
     return Container(
       width: 100,
       decoration: BoxDecoration(

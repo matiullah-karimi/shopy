@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/widgets/bottom_bar_widget.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/providers/product_provider.dart';
 import 'package:shopy/widgets/home/home_categories.dart';
 import 'package:shopy/widgets/home/home_top_widget.dart';
 import 'package:shopy/widgets/product/products_preview_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final productState = ref.watch(productProvider);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -23,11 +26,23 @@ class HomeScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               child: Column(
-                children: const [
-                  ProductsPreviewWidget(),
-                  ProductsPreviewWidget(),
-                  ProductsPreviewWidget(),
-                  ProductsPreviewWidget(),
+                children: [
+                  ProductsPreviewWidget(
+                    title: 'Books',
+                    products: productState.products,
+                  ),
+                  ProductsPreviewWidget(
+                    title: 'Fruits',
+                    products: productState.products,
+                  ),
+                  ProductsPreviewWidget(
+                    title: 'Baby Needs',
+                    products: productState.products,
+                  ),
+                  ProductsPreviewWidget(
+                    title: 'Clothes',
+                    products: productState.products,
+                  ),
                 ],
               ),
               decoration: BoxDecoration(
