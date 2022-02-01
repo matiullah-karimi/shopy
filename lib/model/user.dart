@@ -1,15 +1,22 @@
 import 'dart:convert';
 
 class User {
-  final int id;
-  final String name;
-  final String email;
-  final String password;
+  final int? id;
+  final String? name;
+  final String? email;
+  final String? password;
+  bool? authenticated;
+  bool? isLoggingIn;
+  bool? loading;
+
   User({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.password,
+    this.id,
+    this.name,
+    this.email,
+    this.password,
+    this.authenticated,
+    this.isLoggingIn,
+    this.loading,
   });
 
   User copyWith({
@@ -17,12 +24,18 @@ class User {
     String? name,
     String? email,
     String? password,
+    bool? authenticated,
+    bool? isLoggingIn,
+    bool? loading,
   }) {
     return User(
       id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
       password: password ?? this.password,
+      authenticated: authenticated ?? this.authenticated,
+      isLoggingIn: isLoggingIn ?? this.isLoggingIn,
+      loading: loading ?? this.loading,
     );
   }
 

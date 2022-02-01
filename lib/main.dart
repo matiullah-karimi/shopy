@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/model/app_tabs.dart';
 import 'package:shopy/providers/app_tab_provider.dart';
+import 'package:shopy/providers/auth_provider.dart';
+import 'package:shopy/screens/splash_screen.dart';
 import 'package:shopy/widgets/bottom_bar_widget.dart';
 
 void main() {
@@ -14,15 +16,31 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     AppTabs tab = ref.watch(appTabProvider);
+    final authState = ref.watch(authStateProvider);
 
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          body: IndexedStack(
-            index: tab.index,
-            children: AppTabs.values.map((t) => t.screen).toList(),
+          body: LayoutBuilder(
+            builder: (context, snapshot) {
+              if (authState.loading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
+              if (authState.notAuthenticated) {
+                return const SplashScreen();
+              }
+
+              return IndexedStack(
+                index: tab.index,
+                children: AppTabs.values.map((t) => t.screen).toList(),
+              );
+            },
           ),
-          bottomNavigationBar: const BottomBarWidget(),
+          bottomNavigationBar:
+              authState.authenticated == true ? const BottomBarWidget() : null,
         ),
       ),
     );
