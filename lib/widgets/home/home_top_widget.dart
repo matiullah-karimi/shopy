@@ -14,13 +14,13 @@ class HomeTopWidget extends StatelessWidget {
           children: [
             Positioned(
               child: Container(
-                color: Colors.white,
+                color: Colors.white12,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.height * 0.3 + 20,
               ),
             ),
             Positioned(
-              top: 0,
+              top: -50,
               left: 0,
               right: 0,
               child: Container(
@@ -43,11 +43,20 @@ class HomeTopWidget extends StatelessWidget {
                   const HomeSearchBarWidget(),
                   Container(
                     width: double.infinity,
-                    height: (MediaQuery.of(context).size.height * 0.3) - 50,
-                    child: const HomeFeaturedBar(),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                    height: (MediaQuery.of(context).size.height * 0.3) - 100,
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(32),
+                      child: const HomeFeaturedBar(),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 1,
+                          spreadRadius: 0.3,
+                        ),
+                      ],
                     ),
                   ),
                 ],

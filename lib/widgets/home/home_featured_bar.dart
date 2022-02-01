@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/widgets/product/product_featured_item_widget.dart';
 
 class HomeFeaturedBar extends StatefulWidget {
   const HomeFeaturedBar({Key? key}) : super(key: key);
@@ -8,19 +9,14 @@ class HomeFeaturedBar extends StatefulWidget {
 }
 
 class _HomeFeaturedBarState extends State<HomeFeaturedBar> {
-  final PageController controller = PageController();
+  final PageController controller = PageController(viewportFraction: 1.1);
   int pageIndex = 0;
 
   final items = const <Widget>[
-    Center(
-      child: Text('First Page'),
-    ),
-    Center(
-      child: Text('Second Page'),
-    ),
-    Center(
-      child: Text('Third Page'),
-    )
+    ProductFeaturedItemWidget(),
+    ProductFeaturedItemWidget(),
+    ProductFeaturedItemWidget(),
+    ProductFeaturedItemWidget(),
   ];
 
   @override

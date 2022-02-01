@@ -15,8 +15,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             const HomeTopWidget(),
             Container(
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              color: Colors.white12,
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              margin: const EdgeInsets.symmetric(vertical: 16),
               child: const HomeCategoriesWidget(),
             ),
             Container(
