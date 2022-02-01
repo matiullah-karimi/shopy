@@ -63,7 +63,7 @@ class LoginScreen extends HookConsumerWidget {
                   text: 'Sign in',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      ref.read(authProvider.notifier).login(
+                      ref.read(authStateProvider.notifier).login(
                             emailControler.text,
                             passwordControler.text,
                           );

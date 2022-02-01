@@ -10,11 +10,11 @@ class ProfileScreen extends ConsumerWidget {
     return Scaffold(
       body: Column(
         children: [
-          Text(ref.watch(authProvider).email!),
+          Text(ref.watch(authStateProvider).user!.email!),
           Center(
             child: TextButton(
               onPressed: () {
-                ref.watch(authProvider.notifier).logout();
+                ref.watch(authStateProvider.notifier).logout();
               },
               child: Text('Logout'),
             ),
