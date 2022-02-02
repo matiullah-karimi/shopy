@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/model/product.dart';
+import 'package:shopy/providers/cart_provider.dart';
 
 class ProductListItem2Widget extends HookConsumerWidget {
   const ProductListItem2Widget({Key? key, required this.product})
@@ -11,7 +12,7 @@ class ProductListItem2Widget extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final count = useState(1);
+    final cartNotifier = ref.watch(cartProvider.notifier);
 
     return Container(
       padding: const EdgeInsets.all(8.0),
@@ -54,7 +55,7 @@ class ProductListItem2Widget extends HookConsumerWidget {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.remove),
-                      onPressed: () => count.value--,
+                      onPressed: () => cartNotifier.decrement(product),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -63,11 +64,11 @@ class ProductListItem2Widget extends HookConsumerWidget {
                         border: Border.all(color: Colors.grey.shade200),
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: Text('${count.value}'),
+                      child: Text('${product.quantity}'),
                     ),
                     IconButton(
                       icon: const Icon(Icons.add),
-                      onPressed: () => count.value++,
+                      onPressed: () => cartNotifier.increment(product),
                     ),
                   ],
                 )

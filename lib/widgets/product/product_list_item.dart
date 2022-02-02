@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/model/product.dart';
+import 'package:shopy/providers/cart_provider.dart';
 import 'package:shopy/providers/wishlist_provider.dart';
 
 class ProductListItem extends HookConsumerWidget {
@@ -22,7 +23,7 @@ class ProductListItem extends HookConsumerWidget {
     }
 
     void addToCart() {
-      // ref.read(cartProvider).add(product);
+      ref.read(cartProvider.notifier).add(product);
     }
 
     return SizedBox(

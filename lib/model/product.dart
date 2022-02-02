@@ -13,7 +13,7 @@ class Product {
     required this.title,
     required this.image,
     required this.price,
-    required this.quantity,
+    this.quantity = 0,
   });
 
   Product copyWith({
