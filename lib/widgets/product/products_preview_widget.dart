@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/model/product.dart';
 import 'package:shopy/widgets/product/product_list_item.dart';
+import 'package:shopy/widgets/product/product_preview_placeholder_widget.dart';
 
 class ProductsPreviewWidget extends StatelessWidget {
   const ProductsPreviewWidget({
@@ -37,7 +38,7 @@ class ProductsPreviewWidget extends StatelessWidget {
           SizedBox(
             height: 200,
             child: products.isEmpty
-                ? const CircularProgressIndicator()
+                ? const ProductsPreviewPlaceholderWidget()
                 : GridView.count(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
