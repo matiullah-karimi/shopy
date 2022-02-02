@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/model/app_tabs.dart';
 import 'package:shopy/providers/app_tab_provider.dart';
 
@@ -21,12 +22,17 @@ class BottomBarWidget extends ConsumerWidget {
           label: 'Cart',
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Wishlist',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Profile',
         ),
       ],
       currentIndex: currentTab.index,
-      selectedItemColor: Colors.amber[800],
+      selectedItemColor: kBottomBarSelectedTabColor,
+      unselectedItemColor: kBottomBarUnSelectedTabColor,
       onTap: (index) => ref.read(appTabProvider.notifier).changeTab(index),
     );
   }
