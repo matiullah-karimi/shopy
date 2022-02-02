@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/model/product.dart';
+import 'package:shopy/widgets/product/product_list_item.dart';
 
 class ProductsPreviewWidget extends StatelessWidget {
   const ProductsPreviewWidget({
@@ -27,7 +28,7 @@ class ProductsPreviewWidget extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 100,
+            height: 200,
             child: products.isEmpty
                 ? const CircularProgressIndicator()
                 : GridView.count(
@@ -36,7 +37,9 @@ class ProductsPreviewWidget extends StatelessWidget {
                     crossAxisCount: 1,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
-                    children: products.map(_buildProduct).toList(),
+                    childAspectRatio: MediaQuery.of(context).size.width /
+                        (MediaQuery.of(context).size.height / 3),
+                    children: products.map(_buildProductItem).toList(),
                   ),
           )
         ],
@@ -44,13 +47,9 @@ class ProductsPreviewWidget extends StatelessWidget {
     );
   }
 
-  Container _buildProduct(Product product) {
-    return Container(
-      width: 100,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
+  Widget _buildProductItem(Product product) {
+    return ProductListItem(
+      product: product,
     );
   }
 }
