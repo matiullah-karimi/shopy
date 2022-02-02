@@ -21,6 +21,16 @@ class CartState {
     return products.contains(product);
   }
 
+  double get totalPrice {
+    return products.fold(0, (total, product) {
+      return total + product.price * product.quantity;
+    });
+  }
+
+  String get formattedTotalPrice {
+    return '\$' + totalPrice.toStringAsFixed(2);
+  }
+
   CartState copyWith({
     List<Product>? products,
   }) {

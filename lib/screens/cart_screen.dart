@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shopy/model/cart_item.dart';
 import 'package:shopy/model/product.dart';
 import 'package:shopy/providers/cart_provider.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
@@ -14,6 +13,7 @@ class CartScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     List<Product> products = ref.watch(cartProvider).products;
+    String formattedTotalPrice = ref.watch(cartProvider).formattedTotalPrice;
     final cartNotifier = ref.watch(cartProvider.notifier);
 
     return Scaffold(
@@ -40,6 +40,14 @@ class CartScreen extends HookConsumerWidget {
               Container(
                   padding: const EdgeInsets.symmetric(vertical: 32),
                   child: const Text('No products in cart')),
+            if (products.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [const Text('Total'), Text(formattedTotalPrice)],
+                ),
+              ),
             if (products.isNotEmpty)
               ButtonWidget(text: 'Checkout', onPressed: () {}),
           ],

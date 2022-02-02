@@ -21,7 +21,7 @@ class WishlistNotifier extends StateNotifier<CartState> {
     }
 
     state = state.copyWith(
-      products: List.from(state.products)..add(product),
+      products: List.from(state.products)..add(product.copyWith(quantity: 1)),
     );
   }
 
