@@ -23,15 +23,17 @@ class HomeSearchBarWidget extends StatelessWidget {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Search',
-                    border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: Colors.blue.shade200),
-                    )),
+                  prefixIcon: const Icon(Icons.search),
+                  hintText: 'Search',
+                  border: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    borderSide: BorderSide(color: Colors.blue.shade100),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    borderSide: BorderSide(color: Colors.blue.shade200),
+                  ),
+                ),
               ),
             ),
           ),
