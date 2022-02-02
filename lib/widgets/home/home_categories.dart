@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shopy/constants/styles.dart';
 
 class HomeCategoriesWidget extends StatelessWidget {
   const HomeCategoriesWidget({Key? key}) : super(key: key);
@@ -6,10 +8,10 @@ class HomeCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> items = [
-      _buildCategory('Male', Icons.male),
-      _buildCategory('Female', Icons.female),
-      _buildCategory('Kids', Icons.child_care),
-      _buildCategory('Sale', Icons.g_mobiledata),
+      _buildCategory('Male', FontAwesomeIcons.male),
+      _buildCategory('Female', FontAwesomeIcons.female),
+      _buildCategory('Kid', FontAwesomeIcons.child),
+      _buildCategory('Electronics', FontAwesomeIcons.mobile),
     ];
     return Row(
       children: items,
@@ -21,16 +23,16 @@ class HomeCategoriesWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 80,
-          height: 80,
+          width: 60,
+          height: 60,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Icon(
             icon,
-            size: 40,
-            color: Colors.white,
+            size: 30,
+            color: Colors.blue.shade700,
           ),
           decoration: BoxDecoration(
-            color: Colors.blue.shade300,
+            color: kHomeTopBgColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(

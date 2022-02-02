@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 
 class HomeSearchBarWidget extends StatelessWidget {
   const HomeSearchBarWidget({
@@ -9,7 +10,7 @@ class HomeSearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.blue,
+      color: kHomeTopBgColor,
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
@@ -21,13 +22,16 @@ class HomeSearchBarWidget extends StatelessWidget {
                 color: Colors.white,
               ),
               child: TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: 'Search',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                  ),
-                ),
+                decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.search),
+                    hintText: 'Search',
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      borderSide: BorderSide(color: Colors.blue.shade200),
+                    )),
               ),
             ),
           ),

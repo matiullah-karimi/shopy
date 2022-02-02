@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/widgets/home/home_featured_bar.dart';
 import 'package:shopy/widgets/home/search_bar_widget.dart';
 
@@ -25,9 +26,9 @@ class HomeTopWidget extends StatelessWidget {
               right: 0,
               child: Container(
                 height: (MediaQuery.of(context).size.height * 0.3),
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: kHomeTopBgColor,
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(24),
                     bottomRight: Radius.circular(24),
                   ),

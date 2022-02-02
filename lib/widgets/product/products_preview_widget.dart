@@ -22,7 +22,14 @@ class ProductsPreviewWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title),
+              Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey.shade800,
+                  fontSize: 16,
+                ),
+              ),
               const Text('See All'),
             ],
           ),
