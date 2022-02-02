@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/model/product.dart';
+import 'package:shopy/providers/wishlist_provider.dart';
 
 class ProductListItem extends HookConsumerWidget {
   const ProductListItem({
@@ -13,10 +14,11 @@ class ProductListItem extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var isFavorite = useState(false);
+    final wishlistNotifier = ref.watch(wishlistProvider.notifier);
+    bool isFavorite = ref.watch(wishlistProvider).isFavorite(product);
 
     void toggleFavorite() {
-      isFavorite.value = !isFavorite.value;
+      wishlistNotifier.toggle(product);
     }
 
     void addToCart() {
@@ -43,7 +45,7 @@ class ProductListItem extends HookConsumerWidget {
                 child: Container(
                   child: Icon(
                     Icons.favorite,
-                    color: isFavorite.value ? Colors.red : Colors.grey.shade500,
+                    color: isFavorite ? Colors.red : Colors.grey.shade500,
                   ),
                   padding: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
