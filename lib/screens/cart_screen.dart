@@ -6,6 +6,7 @@ import 'package:shopy/providers/cart_provider.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/button_widget.dart';
 import 'package:shopy/widgets/product/products_list_widget.dart';
+import 'package:shopy/widgets/search_input.dart';
 
 class CartScreen extends HookConsumerWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -32,21 +33,13 @@ class CartScreen extends HookConsumerWidget {
               ],
             ),
             const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.search),
-                hintText: 'Search',
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                  borderSide: BorderSide(color: Colors.blue.shade100),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                  borderSide: BorderSide(color: Colors.blue.shade200),
-                ),
-              ),
-            ),
-            Expanded(child: ProductsListWidget(products: products)),
+            const SearchInputWidget(),
+            if (products.isNotEmpty)
+              Expanded(child: ProductsListWidget(products: products)),
+            if (products.isEmpty)
+              Container(
+                  padding: const EdgeInsets.symmetric(vertical: 32),
+                  child: const Text('No products in cart')),
             if (products.isNotEmpty)
               ButtonWidget(text: 'Checkout', onPressed: () {}),
           ],
