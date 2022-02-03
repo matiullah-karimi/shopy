@@ -31,6 +31,12 @@ class CartState {
     return '\$' + totalPrice.toStringAsFixed(2);
   }
 
+  int get totalQuantity {
+    return products.fold(0, (total, product) {
+      return total + product.quantity;
+    });
+  }
+
   CartState copyWith({
     List<Product>? products,
   }) {
