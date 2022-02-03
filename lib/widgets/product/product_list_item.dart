@@ -26,6 +26,11 @@ class ProductListItem extends HookConsumerWidget {
 
     void addToCart() {
       ref.read(cartProvider.notifier).add(product);
+      const snackBar = SnackBar(
+        content: Text('Product added to the cart'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
     return SizedBox(
