@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/screens/login_screen.dart';
 import 'package:shopy/screens/signup_screen.dart';
 import 'package:shopy/utils/navigator.dart';
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue.shade800,
+      color: kBgColor,
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       child: Stack(
@@ -35,8 +36,8 @@ class SplashScreen extends StatelessWidget {
                 ButtonWidget(
                   text: 'Sign up',
                   onPressed: () => navigate(context, const SignupScreen()),
-                  color: Colors.grey.shade100,
-                  textColor: Colors.blue.shade800,
+                  color: kTextColorLight,
+                  textColor: kTextColorDark,
                 ),
                 ButtonWidget(
                   text: 'Sign in',

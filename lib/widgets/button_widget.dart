@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String text;
@@ -22,7 +23,7 @@ class ButtonWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 21),
         decoration: BoxDecoration(
-          color: color ?? Colors.blue.shade800,
+          color: color ?? kPrimaryButtonColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
@@ -30,7 +31,7 @@ class ButtonWidget extends StatelessWidget {
             text,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: textColor ?? Colors.grey.shade100,
+              color: textColor ?? kPrimaryButtonTextColor,
             ),
           ),
         ),

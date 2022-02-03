@@ -27,7 +27,7 @@ class HomeTopWidget extends StatelessWidget {
               child: Container(
                 height: (MediaQuery.of(context).size.height * 0.3),
                 decoration: BoxDecoration(
-                  color: kHomeTopBgColor,
+                  color: kBgColor,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(24),
                     bottomRight: Radius.circular(24),

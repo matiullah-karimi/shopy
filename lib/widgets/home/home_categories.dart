@@ -29,10 +29,10 @@ class HomeCategoriesWidget extends StatelessWidget {
           child: Icon(
             icon,
             size: 30,
-            color: Colors.blue.shade700,
+            color: Colors.grey.shade100,
           ),
           decoration: BoxDecoration(
-            color: kHomeTopBgColor,
+            color: kBgColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(

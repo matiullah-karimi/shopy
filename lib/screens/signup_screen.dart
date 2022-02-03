@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/screens/login_screen.dart';
 import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/utils/validations.dart';
@@ -76,7 +77,7 @@ class SignupScreen extends StatelessWidget {
                       child: Text(
                         'Sign in',
                         style: TextStyle(
-                          color: Colors.blue.shade400,
+                          color: kTextColorDark,
                         ),
                       ),
                     ),

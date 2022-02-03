@@ -10,7 +10,7 @@ class HomeSearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: kHomeTopBgColor,
+      color: kBgColor,
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
@@ -27,11 +27,11 @@ class HomeSearchBarWidget extends StatelessWidget {
                   hintText: 'Search',
                   border: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide(color: Colors.blue.shade100),
+                    borderSide: BorderSide(color: kSearchInputBorderColor),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    borderSide: BorderSide(color: Colors.blue.shade200),
+                    borderSide: BorderSide(color: kSearchInputFocusBorderColor),
                   ),
                 ),
               ),

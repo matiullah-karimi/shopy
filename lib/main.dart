@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/model/app_tabs.dart';
 import 'package:shopy/providers/app_tab_provider.dart';
 import 'package:shopy/providers/auth_provider.dart';
@@ -19,6 +20,10 @@ class MyApp extends ConsumerWidget {
     final authState = ref.watch(authStateProvider);
 
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: kPrimaryColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       home: SafeArea(
         child: Scaffold(
           body: LayoutBuilder(

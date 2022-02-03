@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 
 class SearchInputWidget extends StatelessWidget {
   const SearchInputWidget({
@@ -13,11 +14,11 @@ class SearchInputWidget extends StatelessWidget {
         hintText: 'Search',
         border: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.blue.shade100),
+          borderSide: BorderSide(color: kSearchInputBorderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.blue.shade200),
+          borderSide: BorderSide(color: kSearchInputFocusBorderColor),
         ),
       ),
     );
