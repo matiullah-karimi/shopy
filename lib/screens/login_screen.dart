@@ -5,6 +5,7 @@ import 'package:shopy/providers/login_provider.dart';
 import 'package:shopy/screens/signup_screen.dart';
 import 'package:shopy/state/login_state.dart';
 import 'package:shopy/utils/navigator.dart';
+import 'package:shopy/utils/validations.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/auth/social_login_widget.dart';
 import 'package:shopy/widgets/auth/social_separator.dart';
@@ -46,6 +47,7 @@ class LoginScreen extends HookConsumerWidget {
                   labelText: 'Email',
                   controller: emailControler,
                   keyboardType: TextInputType.emailAddress,
+                  validator: emailValidator,
                 ),
                 const SizedBox(height: 16),
                 InputWidget(
@@ -54,6 +56,7 @@ class LoginScreen extends HookConsumerWidget {
                   controller: passwordControler,
                   keyboardType: TextInputType.emailAddress,
                   obscureText: true,
+                  validator: passwordValidator,
                 ),
                 const SizedBox(height: 16),
                 Align(

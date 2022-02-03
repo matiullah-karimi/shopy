@@ -6,15 +6,17 @@ class InputWidget extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType? keyboardType;
   final bool? obscureText;
+  final String? Function(String?)? validator;
 
-  const InputWidget({
-    Key? key,
-    required this.hintText,
-    required this.labelText,
-    required this.controller,
-    this.keyboardType,
-    this.obscureText,
-  }) : super(key: key);
+  const InputWidget(
+      {Key? key,
+      required this.hintText,
+      required this.labelText,
+      required this.controller,
+      this.keyboardType,
+      this.obscureText,
+      this.validator})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class InputWidget extends StatelessWidget {
             ),
             hintText: hintText,
           ),
+          validator: validator,
         ),
       ],
     );

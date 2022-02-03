@@ -12,6 +12,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white10,
       elevation: 0,
       foregroundColor: Colors.grey.shade800,
+      bottom: PreferredSize(
+        child: Container(
+          color: Colors.grey.shade200,
+          height: 1,
+        ),
+        preferredSize: const Size.fromHeight(4.0),
+      ),
     );
   }
 
