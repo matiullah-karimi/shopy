@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/model/product.dart';
 import 'package:shopy/providers/cart_provider.dart';
 import 'package:shopy/providers/wishlist_provider.dart';
+import 'package:shopy/widgets/product/favorite_icon_widget.dart';
 
 class ProductListItem extends HookConsumerWidget {
   const ProductListItem({
@@ -39,29 +41,29 @@ class ProductListItem extends HookConsumerWidget {
           children: [
             Container(
               height: 100,
-              alignment: Alignment.topRight,
+              alignment: Alignment.center,
               padding: const EdgeInsets.all(8),
-              child: InkWell(
-                onTap: () => toggleFavorite(),
-                child: Container(
-                  child: Icon(
-                    Icons.favorite,
-                    color: isFavorite ? Colors.red : Colors.grey.shade500,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Image.network(
+                      product.image,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.grey.shade100,
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: FavoriteIconWidget(
+                      isFavorite: isFavorite,
+                      onTap: toggleFavorite,
+                    ),
                   ),
-                ),
+                ],
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(product.image),
-                  fit: BoxFit.contain,
-                ),
               ),
             ),
             const SizedBox(height: 8),
@@ -78,13 +80,13 @@ class ProductListItem extends HookConsumerWidget {
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: Colors.grey.shade400,
+                color: kTextColorMedium,
               ),
               child: Text(
                 '${product.id} colors',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey.shade100,
+                  color: kTextColorLight,
                   fontWeight: FontWeight.w600,
                 ),
               ),

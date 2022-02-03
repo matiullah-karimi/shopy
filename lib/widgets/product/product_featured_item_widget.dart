@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:shopy/constants/styles.dart';
 
 class ProductFeaturedItemWidget extends StatelessWidget {
   const ProductFeaturedItemWidget({Key? key}) : super(key: key);
@@ -25,25 +26,26 @@ class ProductFeaturedItemWidget extends StatelessWidget {
           const SizedBox(width: 32),
           Column(
             children: [
-              Text('Popular'),
+              const Text('Popular'),
               const SizedBox(height: 8),
-              Text('Air Max 2019',
+              const Text('Air Max 2019',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   )),
               const SizedBox(height: 8),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade900,
+                  color: kPrimaryButtonColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
                   child: Text(
                     'Buy Now',
                     style: TextStyle(
-                      color: Colors.grey.shade100,
+                      color: kTextColorLight,
                     ),
                   ),
                 ),
