@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopy/constants/styles.dart';
 import 'package:shopy/model/product.dart';
 import 'package:shopy/providers/cart_provider.dart';
 
@@ -7,9 +8,11 @@ class AddToCartIconWidget extends ConsumerWidget {
   const AddToCartIconWidget({
     Key? key,
     required this.product,
+    this.color,
   }) : super(key: key);
 
   final Product product;
+  final Color? color;
 
   @override
   Widget build(BuildContext context, ref) {
@@ -22,12 +25,12 @@ class AddToCartIconWidget extends ConsumerWidget {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
-      child: InkWell(
-        child: const Icon(Icons.add),
-        onTap: () => addToCart(),
+    return InkWell(
+      child: Icon(
+        Icons.add_shopping_cart_sharp,
+        color: color ?? kTextColorDark,
       ),
+      onTap: () => addToCart(),
     );
   }
 }

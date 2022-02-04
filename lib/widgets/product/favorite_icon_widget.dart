@@ -22,13 +22,13 @@ class FavoriteIconWidget extends ConsumerWidget {
       onTap: () => toggleFavorite(),
       child: Container(
         child: Icon(
-          Icons.favorite,
-          color: isFavorite ? Colors.red : kTextColorMedium,
+          isFavorite ? Icons.favorite : Icons.favorite_outline,
+          color: kTextColorDark,
         ),
         padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: Colors.grey.shade100,
+          color: kTextColorLight,
         ),
       ),
     );
