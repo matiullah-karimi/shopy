@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shopy/constants/styles.dart';
-import 'package:shopy/widgets/home/home_featured_bar.dart';
 import 'package:shopy/widgets/home/search_bar_widget.dart';
+import 'package:shopy/widgets/home/home_featured_bar.dart';
+import 'package:shopy/constants/styles.dart';
+import 'package:flutter/material.dart';
 
 class HomeTopWidget extends StatelessWidget {
   const HomeTopWidget({Key? key}) : super(key: key);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopy/constants/styles.dart';
+import 'package:shopy/screens/search_result_screen.dart';
+import 'package:shopy/utils/navigator.dart';
 
 class HomeSearchBarWidget extends StatelessWidget {
   const HomeSearchBarWidget({
@@ -22,6 +24,8 @@ class HomeSearchBarWidget extends StatelessWidget {
                 color: Colors.white,
               ),
               child: TextFormField(
+                readOnly: true,
+                onTap: () => navigate(context, const SearchResultScreen()),
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.search),
                   hintText: 'Search',
@@ -35,16 +39,6 @@ class HomeSearchBarWidget extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Container(
-            height: 60,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const Icon(Icons.filter_list),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.white,
             ),
           ),
         ],

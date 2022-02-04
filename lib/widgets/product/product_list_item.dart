@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/constants/styles.dart';
 import 'package:shopy/model/product.dart';
-import 'package:shopy/screens/product_details_screen.dart';
 import 'package:shopy/utils/navigator.dart';
-import 'package:shopy/widgets/product/add_to_cart_icon_widget.dart';
+import 'package:shopy/constants/styles.dart';
+import 'package:shopy/screens/product_details_screen.dart';
 import 'package:shopy/widgets/product/favorite_icon_widget.dart';
+import 'package:shopy/widgets/product/add_to_cart_icon_widget.dart';
 
 class ProductListItem extends StatelessWidget {
   const ProductListItem({
@@ -23,7 +23,7 @@ class ProductListItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.grey.shade100,
+            color: kTextColorLight,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(
