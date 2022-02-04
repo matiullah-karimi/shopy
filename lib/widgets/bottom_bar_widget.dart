@@ -16,7 +16,7 @@ class BottomBarWidget extends ConsumerWidget {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         const BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.home_outlined),
           label: 'Home',
         ),
         BottomNavigationBarItem(
@@ -24,7 +24,7 @@ class BottomBarWidget extends ConsumerWidget {
           icon: Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
-              const Icon(Icons.shopping_cart),
+              const Icon(Icons.shopping_cart_outlined),
               Positioned(
                 top: -8.0,
                 right: -8.0,
@@ -49,11 +49,11 @@ class BottomBarWidget extends ConsumerWidget {
           ),
         ),
         const BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
+          icon: Icon(Icons.favorite_outline),
           label: 'Wishlist',
         ),
         const BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.person_outline),
           label: 'Profile',
         ),
       ],
