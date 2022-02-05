@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/providers/auth_provider.dart';
+import 'package:shopy/screens/login_screen.dart';
+import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/auth/profile_short_info_widget.dart';
+import 'package:shopy/widgets/button_widget.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ref) {
+    final authState = ref.watch(authStateProvider);
+
     return Scaffold(
       appBar: const AppBarWidget(title: 'My account'),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const ProfileShortInfoWidget(),
+          if (authState.authenticated) const ProfileShortInfoWidget(),
+          if (!authState.authenticated)
+            ButtonWidget(
+                text: 'Signin',
+                onPressed: () => navigate(context, const LoginScreen())),
           const Divider(height: 32),
           _buildListItem('Account details', () {
             Navigator.of(context).pushNamed('/account-details');

@@ -30,12 +30,8 @@ class MyApp extends ConsumerWidget {
             builder: (context, snapshot) {
               if (authState.loading) {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: SplashScreen(),
                 );
-              }
-
-              if (authState.notAuthenticated) {
-                return const SplashScreen();
               }
 
               return IndexedStack(
@@ -45,7 +41,7 @@ class MyApp extends ConsumerWidget {
             },
           ),
           bottomNavigationBar:
-              authState.authenticated == true ? const BottomBarWidget() : null,
+              authState.loading == true ? null : const BottomBarWidget(),
         ),
       ),
     );

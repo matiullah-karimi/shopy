@@ -24,6 +24,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   void _init() async {
     state = AuthState.loading();
 
+    await Future.delayed(const Duration(seconds: 3));
     final isAuthenticated = await authRepository.isAuthenticated();
 
     if (!isAuthenticated) {
