@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/constants/styles.dart';
 import 'package:shopy/providers/login_provider.dart';
+import 'package:shopy/screens/forgot_password.dart';
 import 'package:shopy/screens/signup_screen.dart';
 import 'package:shopy/state/login_state.dart';
 import 'package:shopy/utils/navigator.dart';
@@ -63,7 +64,8 @@ class LoginScreen extends HookConsumerWidget {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: InkWell(
-                    onTap: () => navigate(context, const SignupScreen()),
+                    onTap: () =>
+                        navigate(context, const ForgotPasswordScreen()),
                     child: Text(
                       'Forgot password?',
                       style: TextStyle(
