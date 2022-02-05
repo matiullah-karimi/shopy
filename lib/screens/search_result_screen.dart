@@ -32,6 +32,8 @@ class SearchResultScreen extends HookConsumerWidget {
             ),
             const SizedBox(height: 16),
             if (productState.isLoading) const CircularProgressIndicator(),
+            if (productState.products.isEmpty && !productState.isLoading)
+              const Text('No result found'),
             if (!productState.isLoading)
               Expanded(
                 child: GridView.builder(
