@@ -76,7 +76,8 @@ class LoginScreen extends HookConsumerWidget {
                 ),
                 const SizedBox(height: 24),
                 ButtonWidget(
-                  text: loginState.isLoading ? 'Signing in...' : 'Sign in',
+                  text: 'Sign in',
+                  loading: loginState.isLoading,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       ref

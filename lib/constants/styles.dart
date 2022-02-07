@@ -11,3 +11,13 @@ final kSearchInputFocusBorderColor = Colors.grey.shade200;
 final kTextColorLight = Colors.grey.shade100;
 final kTextColorDark = Colors.grey.shade800;
 final kTextColorMedium = Colors.grey.shade500;
+
+final kPrimaryButtonStyle = BoxDecoration(
+  color: kPrimaryButtonColor,
+  borderRadius: BorderRadius.circular(10),
+);
+
+final kSecondaryButtonStyle = kPrimaryButtonStyle.copyWith(
+  color: kTextColorLight,
+  border: Border.all(color: kTextColorDark),
+);
