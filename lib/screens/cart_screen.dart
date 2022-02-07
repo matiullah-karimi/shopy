@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopy/model/product.dart';
 import 'package:shopy/providers/cart_provider.dart';
+import 'package:shopy/screens/checkout_screen.dart';
+import 'package:shopy/utils/navigator.dart';
 import 'package:shopy/widgets/app_bar_widget.dart';
 import 'package:shopy/widgets/button_widget.dart';
 import 'package:shopy/widgets/product/products_list_widget.dart';
@@ -49,7 +51,13 @@ class CartScreen extends HookConsumerWidget {
                 ),
               ),
             if (products.isNotEmpty)
-              ButtonWidget(text: 'Checkout', onPressed: () {}),
+              ButtonWidget(
+                text: 'Checkout',
+                onPressed: () => navigate(
+                  context,
+                  const CheckoutScreen(),
+                ),
+              ),
           ],
         ),
       ),
