@@ -13,7 +13,6 @@ class AuthRepository {
   }
 
   Future<void> logout() async {
-    await Future.delayed(const Duration(seconds: 1));
     await LocalStorage.deleteItem('token');
     await LocalStorage.deleteItem('user');
   }

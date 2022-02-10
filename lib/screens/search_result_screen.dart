@@ -59,7 +59,10 @@ class SearchResultScreen extends HookConsumerWidget {
               ),
               const SizedBox(height: 16),
               if (productState.isLoading && !isEnd.value)
-                const CircularProgressIndicator(),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: CircularProgressIndicator(),
+                ),
               if (productState.products.isEmpty && !productState.isLoading)
                 const Text('No result found'),
               // if (!productState.isLoading)

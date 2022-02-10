@@ -17,7 +17,7 @@ class ProfileShortInfoWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             image: const DecorationImage(
               image: NetworkImage(
-                  'https://scontent.ffjr1-5.fna.fbcdn.net/v/t39.30808-1/p200x200/218733569_6459664180741456_49110727911368210_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=7206a8&_nc_ohc=aQ13E9JdDzMAX-g-Ez7&_nc_ht=scontent.ffjr1-5.fna&oh=00_AT8jqvDOZdvTFXqF_83TbaZZPJeqwbyZiYs9nHOWP0NtoQ&oe=62004BAD'),
+                  'https://media-exp1.licdn.com/dms/image/C4D03AQEaVSXKv-S1dQ/profile-displayphoto-shrink_400_400/0/1595934849886?e=1649894400&v=beta&t=i_8H5ma62biJU-TclOS8WwMyK6DXhUjo46lDZ1KQCog'),
               fit: BoxFit.cover,
             ),
           ),
