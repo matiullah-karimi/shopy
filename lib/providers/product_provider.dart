@@ -1,5 +1,4 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shopy/model/product.dart';
 import 'package:shopy/repositories/product_repository.dart';
 import 'package:shopy/state/product_state.dart';
 
@@ -21,27 +20,27 @@ class ProductStateNotifier extends StateNotifier<ProductState> {
 
   ProductRepository productRepository;
 
-  Future<void> loadProducts() async {
-    state = ProductState.loading();
+  Future<void> loadProducts({String term = '', String category = ''}) async {
+    state = state.copyWith(isLoading: true, page: state.page + 1);
 
     try {
-      final products = await productRepository.getAllProducts();
-      state = ProductState.success(
-          [...state.products, ...products], 1, products.length);
+      final products =
+          await productRepository.getAllProducts(state.page, term, category);
+      state = state.copyWith(
+        products: [...state.products, ...products],
+        isLoading: false,
+      );
     } catch (e) {
       state = ProductState.failure(e.toString());
     }
   }
 
-  Future<void> search(String term) async {
-    state = ProductState.loading();
+  Future<void> refresh() async {
+    state = state.copyWith(isLoading: true);
 
     try {
-      final products = await productRepository.getAllProducts();
-      final filteredProducts = products.where((product) {
-        return product.title.toLowerCase().contains(term.toLowerCase());
-      }).toList();
-      state = ProductState.success(filteredProducts, 1, products.length);
+      final products = await productRepository.getAllProducts(1, '', '');
+      state = ProductState.success(products, 1, products.length);
     } catch (e) {
       state = ProductState.failure(e.toString());
     }
